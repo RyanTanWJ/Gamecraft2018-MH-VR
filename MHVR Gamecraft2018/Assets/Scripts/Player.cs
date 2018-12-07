@@ -10,7 +10,6 @@ public class Player : MonoBehaviour {
 	public KeyCode Previous { get; set; }
 
 	public int Score { get; set; }
-	public Gear currentGear { get; set; }
 
 	public static Player Initialise(int player_number) {
 		Player newPlayer = new Player();
@@ -33,7 +32,6 @@ public class Player : MonoBehaviour {
 		}
 
 		newPlayer.Score = 0;
-		newPlayer.currentGear = null;
 
 		return newPlayer;
 	}

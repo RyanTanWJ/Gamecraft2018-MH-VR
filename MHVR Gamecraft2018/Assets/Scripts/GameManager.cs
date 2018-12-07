@@ -16,20 +16,28 @@ public class GameManager : MonoBehaviour {
 
 	void Update() {
 		for (int i = 0; i < NUM_PLAYERS; i++) {
-			if (Input.GetKey(players[i].Left)) {
-				GearSystem.Rotate(false);
+			if (Input.GetKey(players[i].Left))
+      {
+        bool player = i == 0 ? false : true;
+        GearSystem.Rotate(player,false);
 			}
 
-			if (Input.GetKey(players[i].Right)) {
-				GearSystem.Rotate(true);
+			if (Input.GetKey(players[i].Right))
+      {
+        bool player = i == 0 ? false : true;
+        GearSystem.Rotate(player,true);
 			}
 
-			if (Input.GetKeyDown(players[i].Next)) {
-				GearSystem.ChangeGearSystem(true);
+			if (Input.GetKeyDown(players[i].Next))
+      {
+        bool player = i == 0 ? false : true;
+        GearSystem.ChangeGearSystem(player,true);
 			}
 
-			if (Input.GetKeyDown(players[i].Previous)) {
-				GearSystem.ChangeGearSystem(false);
+			if (Input.GetKeyDown(players[i].Previous))
+      {
+        bool player = i == 0 ? false : true;
+        GearSystem.ChangeGearSystem(player,false);
 			}
 		}
 	}

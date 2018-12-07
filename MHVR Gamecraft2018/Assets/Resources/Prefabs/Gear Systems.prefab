@@ -526,7 +526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be28052b0fc31a54f82d0cf0c7e5a443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: 0
+  _size: 1
   inPhase: 1
   HighlightedSprite: {fileID: 21300000, guid: 4020627bb0a4c4e46aaacd7deac59d74, type: 3}
   RegularSprite: {fileID: 21300000, guid: d37ed6803c56a834daf053eba2f39a27, type: 3}
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be28052b0fc31a54f82d0cf0c7e5a443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: 0
+  _size: 1
   inPhase: 1
   HighlightedSprite: {fileID: 21300000, guid: 4020627bb0a4c4e46aaacd7deac59d74, type: 3}
   RegularSprite: {fileID: 21300000, guid: d37ed6803c56a834daf053eba2f39a27, type: 3}
@@ -626,7 +626,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be28052b0fc31a54f82d0cf0c7e5a443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _size: 0
+  _size: 1
   inPhase: 1
   HighlightedSprite: {fileID: 21300000, guid: 4020627bb0a4c4e46aaacd7deac59d74, type: 3}
   RegularSprite: {fileID: 21300000, guid: d37ed6803c56a834daf053eba2f39a27, type: 3}

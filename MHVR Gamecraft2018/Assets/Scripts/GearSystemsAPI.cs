@@ -3,60 +3,118 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GearSystemsAPI : MonoBehaviour {
+public class GearSystemsAPI : MonoBehaviour
+{
 
   [SerializeField]
   List<GearSystem> gearSystems;
-  int currActiveSystem = 0;
+  int p1ActiveSystem;
+  int p2ActiveSystem;
 
   private void Start()
+  {
+    if (gearSystems.Count < 2)
+    {
+      Debug.LogError("Too few Gear Systems");
+    }
+    p1ActiveSystem = 0;
+    p2ActiveSystem = gearSystems.Count - 1;
+    UpdateGearSystem();
+  }
+
+  private void UpdateGearSystem()
   {
     foreach (GearSystem gs in gearSystems)
     {
       gs.Deactivate();
     }
-    gearSystems[currActiveSystem].Activate();
+    gearSystems[p1ActiveSystem].Activate();
+    gearSystems[p2ActiveSystem].Activate();
   }
 
   /// <summary>
   /// Rotates the current active gear system
   /// </summary>
+  /// <param name="playerSystem">false if player 1, otherwise player 2</param>
   /// <param name="clockwise">clockwise true; counter-clockwise otherwise</param>
-  public void Rotate(bool clockwise)
+  public void Rotate(bool playerSystem, bool clockwise)
   {
-    if (clockwise)
+    if (playerSystem)
     {
-      gearSystems[currActiveSystem].Rotate(-1f);
+      if (clockwise)
+      {
+        gearSystems[p1ActiveSystem].Rotate(-1f);
+      }
+      else
+      {
+        gearSystems[p1ActiveSystem].Rotate(1f);
+      }
     }
     else
     {
-      gearSystems[currActiveSystem].Rotate(1f);
+      if (clockwise)
+      {
+        gearSystems[p2ActiveSystem].Rotate(-1f);
+      }
+      else
+      {
+        gearSystems[p2ActiveSystem].Rotate(1f);
+      }
     }
   }
 
   /// <summary>
   /// Function to change gear system
   /// </summary>
+  /// <param name="playerSystem">false if player 1, otherwise player 2</param>
   /// <param name="next">forward or backward change</param>
-  public void ChangeGearSystem(bool next)
+  public void ChangeGearSystem(bool playerSystem, bool next)
   {
-    gearSystems[currActiveSystem].Deactivate();
-    if (next)
+    ChangeGearSystemNumbers(playerSystem, next);
+
+    UpdateGearSystem();
+    Debug.Log(p1ActiveSystem);
+    Debug.Log(p2ActiveSystem);
+  }
+  private void ChangeGearSystemNumbers(bool playerSystem, bool next)
+  {
+    if (playerSystem)
     {
-      currActiveSystem++;
-      if (currActiveSystem == gearSystems.Count)
+      if (next)
       {
-        currActiveSystem = 0;
+        p1ActiveSystem = (p1ActiveSystem + 1) % gearSystems.Count;
+        if (p2ActiveSystem == p1ActiveSystem)
+        {
+          ChangeGearSystemNumbers(playerSystem, next);
+        }
+      }
+      else
+      {
+        p1ActiveSystem = (p1ActiveSystem + gearSystems.Count - 1) % gearSystems.Count;
+        if (p2ActiveSystem == p1ActiveSystem)
+        {
+          ChangeGearSystemNumbers(playerSystem, next);
+        }
       }
     }
     else
     {
-      currActiveSystem--;
-      if (currActiveSystem < 0)
+      if (next)
       {
-        currActiveSystem = gearSystems.Count - 1;
+        p2ActiveSystem = (p2ActiveSystem + 1) % gearSystems.Count;
+        if (p2ActiveSystem == p1ActiveSystem)
+        {
+          ChangeGearSystemNumbers(playerSystem, next);
+        }
+      }
+      else
+      {
+        p2ActiveSystem = (p2ActiveSystem + gearSystems.Count - 1) % gearSystems.Count;
+        if (p2ActiveSystem == p1ActiveSystem)
+        {
+          ChangeGearSystemNumbers(playerSystem, next);
+        }
       }
     }
-    gearSystems[currActiveSystem].Activate();
   }
 }
