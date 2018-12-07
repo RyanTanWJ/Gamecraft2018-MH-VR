@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	private const int NUM_PLAYERS = 2;
 	Player[] players;
 
-	void Start() {
+	void Awake() {
 		InitialiseGame();
 	}
 
@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour {
 	private void InitialiseGame() {
 		GearSystem = GearSystemObject.GetComponent<GearSystemsAPI>();
 		InitialisePlayers();
+		PrefabManager.InitialiseBlockSprites();
 	}
 
 	private void InitialisePlayers() {

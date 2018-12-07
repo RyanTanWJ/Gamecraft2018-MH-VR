@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using BlockType = Block.BlockType;
 
 public class Gear : MonoBehaviour {
 
@@ -21,6 +22,10 @@ public class Gear : MonoBehaviour {
 		get { return 10; }
 	}
 
+	public void Start() {
+		CreateBlock();
+	}
+
 	public void Rotate(float masterSize, float degrees)
   {
     if (inPhase)
@@ -31,5 +36,10 @@ public class Gear : MonoBehaviour {
     {
       transform.Rotate(0, 0, -degrees * (masterSize / _size));
     }
+	}
+
+	public void CreateBlock() {
+		Quaternion spawnRotation = Quaternion.Euler(0, 0, Random.Range(-180, 180));
+		Instantiate(PrefabManager.blockPrefab[(BlockType)Random.Range(0, 7)], transform.position, spawnRotation, transform);
 	}
 }
