@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
+	public GameObject gearObject;
+	private Gear gear;
+
+	private void Start() {
+		gear = gearObject.GetComponent<Gear>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+	private void FixedUpdate () {
+		if (Input.GetKey(KeyCode.LeftArrow)){
+			gear.Rotate(gear.RotationSpeed);
+		} else if (Input.GetKey(KeyCode.RightArrow)) {
+			gear.Rotate(-gear.RotationSpeed);
+		}
 	}
 }

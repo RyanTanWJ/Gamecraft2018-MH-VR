@@ -6,30 +6,47 @@ public class Gear : MonoBehaviour {
 
 	[SerializeField]
 	private float _size;
-	private float rotationSpeed = 10;
 
-	public float size {
+	public float Size {
 		get { return _size; }
 		set { _size = value; }
 	}
 
-	public void Update()
+	public float RotationSpeed {
+		get { return 10; }
+	}
+
+	public Vector3 Position { get; set; }
+
+	public void Start() {
+		Position = transform.position;
+	}
+
+	public void EarlyUpdate()
 	{
-		if (Input.GetKey(KeyCode.LeftArrow))
-		{
-			Rotate(rotationSpeed);
-		} else if (Input.GetKey(KeyCode.RightArrow)) {
-			Rotate(-rotationSpeed);
-		}
+		transform.position = Position;
+	}
+
+	public void FixedUpdate()
+	{
+		transform.position = Position;
+	}
+
+	public void LateUpdate() {
+		transform.position = Position;
 	}
 
 	public void Rotate(float degrees) {
-		transform.Rotate(0,0, degrees);
 
-		foreach (Gear child_gear in GetComponentsInChildren<Gear>()) {
+
+		Gear[] allGears = GetComponentsInChildren<Gear>();
+
+		foreach (Gear child_gear in allGears) {
 			if (child_gear.transform != transform) {
-				child_gear.Rotate(-degrees);
+				child_gear.Rotate(-degrees * child_gear.Size * 2);
 			}
 		}
+
+		transform.Rotate(0, 0, degrees);
 	}
 }
