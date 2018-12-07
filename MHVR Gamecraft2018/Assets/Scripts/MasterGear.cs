@@ -5,16 +5,16 @@ using UnityEngine;
 public class MasterGear : Gear
 {
   [SerializeField]
-  Sprite HighlightedSprite;
+  List<Sprite> HighlightedSprites;
   [SerializeField]
   Sprite RegularSprite;
 
   bool isActive = false;
 
-  public void ActivateMasterGear()
+  public void ActivateMasterGear(bool player)
   {
     isActive = true;
-    GetComponent<SpriteRenderer>().sprite = HighlightedSprite;
+    GetComponent<SpriteRenderer>().sprite = HighlightedSprites[player ? 1 : 0];
   }
 
   public void DeactivateMasterGear()

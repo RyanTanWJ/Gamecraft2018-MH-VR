@@ -12,9 +12,9 @@ public class GearSystem : MonoBehaviour {
   /// <summary>
   /// Activates the Master Gear of the system
   /// </summary>
-  public void Activate()
+  public void Activate(bool player)
   {
-    masterGear.ActivateMasterGear();
+    masterGear.ActivateMasterGear(player);
   }
 
   /// <summary>

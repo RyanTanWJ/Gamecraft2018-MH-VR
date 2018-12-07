@@ -28,8 +28,8 @@ public class GearSystemsAPI : MonoBehaviour
     {
       gs.Deactivate();
     }
-    gearSystems[p1ActiveSystem].Activate();
-    gearSystems[p2ActiveSystem].Activate();
+    gearSystems[p1ActiveSystem].Activate(false);
+    gearSystems[p2ActiveSystem].Activate(true);
   }
 
   /// <summary>
