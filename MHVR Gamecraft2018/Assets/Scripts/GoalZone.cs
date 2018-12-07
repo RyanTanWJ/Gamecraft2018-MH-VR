@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class GoalZone : MonoBehaviour {
 
-  [SerializeField]
+	public delegate void Score(int player);
+	public static event Score ScoreEvent;
+
+	[SerializeField]
   int player;
 
   [SerializeField]
@@ -26,13 +29,18 @@ public class GoalZone : MonoBehaviour {
   {
     if (collision.gameObject.CompareTag("Ball"))
     {
-      ScoreGoal(player);
+			if (player > 0)
+			{
+				ScoreGoal(player);
+			}
+      
       collision.gameObject.GetComponent<Ball>().ExplodeBall();
     }
   }
 
   void ScoreGoal(int player)
   {
+		ScoreEvent(player);
     Debug.Log("Player " + player + " scored!");
   }
 }
