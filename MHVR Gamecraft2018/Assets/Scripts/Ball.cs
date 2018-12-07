@@ -5,19 +5,12 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+  public delegate void BallExploded(Ball ball);
+  public static event BallExploded BallExplodedEvent;
 
   internal void ExplodeBall()
   {
     Debug.Log("Ball exploded!");
-    Destroy(gameObject);
+    BallExplodedEvent(this);
   }
 }

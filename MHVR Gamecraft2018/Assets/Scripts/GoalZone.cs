@@ -4,11 +4,22 @@ using UnityEngine;
 
 public class GoalZone : MonoBehaviour {
 
+  [SerializeField]
   int player;
+
+  [SerializeField]
+  TMPro.TextMeshPro playerNumberText;
 
   private void Start()
   {
-    player = 0;
+    if (player < 0)
+    {
+      playerNumberText.text = "X";
+    }
+    else
+    {
+      playerNumberText.text = player.ToString();
+    }
   }
 
   private void OnCollisionEnter2D(Collision2D collision)
