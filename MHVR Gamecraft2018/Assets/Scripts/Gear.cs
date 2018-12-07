@@ -6,8 +6,13 @@ public class Gear : MonoBehaviour {
 
 	[SerializeField]
 	private float _size;
+  /// <summary>
+  /// If the gear is in phase with the main gear
+  /// </summary>
+  [SerializeField]
+  bool inPhase;
 
-	public float Size {
+  public float Size {
 		get { return _size; }
 		set { _size = value; }
 	}
@@ -16,37 +21,16 @@ public class Gear : MonoBehaviour {
 		get { return 10; }
 	}
 
-	public Vector3 Position { get; set; }
-
-	public void Start() {
-		Position = transform.position;
-	}
-
-	public void EarlyUpdate()
-	{
-		transform.position = Position;
-	}
-
-	public void FixedUpdate()
-	{
-		transform.position = Position;
-	}
-
-	public void LateUpdate() {
-		transform.position = Position;
-	}
-
-	public void Rotate(float degrees) {
-
-
-		Gear[] allGears = GetComponentsInChildren<Gear>();
-
-		foreach (Gear child_gear in allGears) {
-			if (child_gear.transform != transform) {
-				child_gear.Rotate(-degrees * child_gear.Size * 2);
-			}
-		}
-
-		transform.Rotate(0, 0, degrees);
+	public void Rotate(float degrees)
+  {
+    Debug.Log(name + " is rotating by " + degrees + " degrees");
+    if (inPhase)
+    {
+      transform.Rotate(0, 0, degrees);
+    }
+    else
+    {
+      transform.Rotate(0, 0, -degrees);
+    }
 	}
 }

@@ -12,10 +12,5 @@ public class Player : MonoBehaviour {
 	}
 
 	private void FixedUpdate () {
-		if (Input.GetKey(KeyCode.LeftArrow)){
-			gear.Rotate(gear.RotationSpeed);
-		} else if (Input.GetKey(KeyCode.RightArrow)) {
-			gear.Rotate(-gear.RotationSpeed);
-		}
 	}
 }
