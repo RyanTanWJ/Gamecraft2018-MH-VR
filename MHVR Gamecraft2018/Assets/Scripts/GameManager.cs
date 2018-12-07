@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -52,9 +53,19 @@ public class GameManager : MonoBehaviour {
 		score1.text = "Player 1\nScore: " + players[0].Score;
 		score2.text = "Player 2\nScore: " + players[1].Score;
 		time.text = "Time Remaining\n" + (int)(gameDuration - Time.time - gameStartTime);
+
+    if (gameDuration - Time.time - gameStartTime <= 0)
+    {
+      GameOver();
+    }
 	}
 
-	private void InitialiseGame() {
+  private void GameOver()
+  {
+    ButtonController buttonController = new ButtonController();
+  }
+
+  private void InitialiseGame() {
 		GearSystem = GearSystemObject.GetComponent<GearSystemsAPI>();
 		InitialisePlayers();
 		PrefabManager.InitialiseBlockSprites();
