@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	public TMPro.TextMeshProUGUI time, score1, score2;
 	GearSystemsAPI GearSystem;
 
-	private float gameDuration = 150;
+	private float gameDuration = 30;
 	private float gameStartTime;
 
 	private const int NUM_PLAYERS = 2;
@@ -17,7 +17,13 @@ public class GameManager : MonoBehaviour {
 
 	private bool isPaused;
 
-	void Awake() {
+  [SerializeField]
+  GameObject GameCanvas;
+
+  [SerializeField]
+  GameObject GameOverCanvas;
+
+  void Awake() {
 		InitialiseGame();
 	}
 
@@ -74,7 +80,15 @@ public class GameManager : MonoBehaviour {
 	private void GameOver() {
 		PauseGame();
 		ButtonController buttonController = new ButtonController();
+    buttonController.hideObject(GameCanvas);
+    ActivateGameOverCanvas();
 	}
+
+  private void ActivateGameOverCanvas()
+  {
+    GameOverCanvas.SetActive(true);
+    GameOverCanvas.GetComponent<GameOverMenu>().PopulateCanvas(players[0].Score, players[1].Score);
+  }
 
   private void InitialiseGame() {
 		isPaused = false;
