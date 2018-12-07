@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
+	public GameObject GearSystemObject;
+	GearSystemsAPI GearSystem;
+
 	private const int NUM_PLAYERS = 2;
 	Player[] players;
 
@@ -14,24 +17,25 @@ public class GameManager : MonoBehaviour {
 	void Update() {
 		for (int i = 0; i < NUM_PLAYERS; i++) {
 			if (Input.GetKey(players[i].Left)) {
-				print("Player " + i + ": Left");
+				GearSystem.Rotate(false);
 			}
 
 			if (Input.GetKey(players[i].Right)) {
-				print("Player " + i + ": Right");
+				GearSystem.Rotate(true);
 			}
 
 			if (Input.GetKeyDown(players[i].Next)) {
-				print("Player " + i + ": Next");
+				GearSystem.ChangeGearSystem(true);
 			}
 
 			if (Input.GetKeyDown(players[i].Previous)) {
-				print("Player " + i + ": Previous");
+				GearSystem.ChangeGearSystem(false);
 			}
 		}
 	}
 
 	private void InitialiseGame() {
+		GearSystem = GearSystemObject.GetComponent<GearSystemsAPI>();
 		InitialisePlayers();
 	}
 
