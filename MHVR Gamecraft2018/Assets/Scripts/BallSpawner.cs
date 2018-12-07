@@ -38,6 +38,8 @@ public class BallSpawner : MonoBehaviour {
   {
     float x = Random.Range(SpawnAreaTopLeftCorner.x, SpawnAreaBotRightCorner.x);
     float y = Random.Range(SpawnAreaBotRightCorner.y, SpawnAreaTopLeftCorner.y);
-    ballPool.GetBall().transform.position = new Vector3(x,y,0);
+    GameObject ballObj = ballPool.GetBall();
+    ballObj.transform.position = new Vector3(x,y,0);
+    ballObj.GetComponent<Ball>().PlayFX();
   }
 }

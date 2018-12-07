@@ -28,6 +28,7 @@ public class BallPool : MonoBehaviour {
     {
       GameObject retBall = balls[0];
       balls.RemoveAt(0);
+      retBall.SetActive(true);
       return retBall;
     }
   }
@@ -37,5 +38,6 @@ public class BallPool : MonoBehaviour {
     GameObject ballObj = ball.gameObject;
     ballObj.transform.position = transform.position;
     balls.Add(ballObj);
+    ballObj.SetActive(false);
   }
 }
