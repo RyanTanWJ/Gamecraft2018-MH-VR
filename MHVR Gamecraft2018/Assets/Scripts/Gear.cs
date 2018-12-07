@@ -21,16 +21,15 @@ public class Gear : MonoBehaviour {
 		get { return 10; }
 	}
 
-	public void Rotate(float degrees)
+	public void Rotate(float masterSize, float degrees)
   {
-    Debug.Log(name + " is rotating by " + degrees + " degrees");
     if (inPhase)
     {
-      transform.Rotate(0, 0, degrees);
+      transform.Rotate(0, 0, degrees * (masterSize / _size));
     }
     else
     {
-      transform.Rotate(0, 0, -degrees);
+      transform.Rotate(0, 0, -degrees * (masterSize / _size));
     }
 	}
 }

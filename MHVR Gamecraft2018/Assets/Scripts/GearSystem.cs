@@ -31,19 +31,19 @@ public class GearSystem : MonoBehaviour {
   /// <param name="deg"></param>
   public void Rotate(float deg)
   {
+    if (!masterGear.Active)
+    {
+      return;
+    }
     RotateGearSystem(deg);
   }
 
   private void RotateGearSystem(float deg)
   {
-    if (!masterGear.Active)
-    {
-      return;
-    }
-    masterGear.Rotate(deg);
+    masterGear.Rotate(masterGear.Size, deg);
     foreach (Gear gear in normalGearsInSystem)
     {
-      gear.Rotate(deg);
+      gear.Rotate(masterGear.Size, deg);
     }
   }
 }
