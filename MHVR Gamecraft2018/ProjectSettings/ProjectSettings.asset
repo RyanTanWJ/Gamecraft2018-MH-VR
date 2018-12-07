@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 18eec96ae890ad44d8ffbd141717aea6
+  productGUID: cb43db1c4ed9d40478f6359a6b91caac
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -406,6 +406,7 @@ PlayerSettings:
   switchAllowsVideoCapturing: 1
   switchAllowsRuntimeAddOnContentInstall: 0
   switchDataLossConfirmation: 0
+  switchUserAccountLockEnabled: 0
   switchSupportedNpadStyles: 3
   switchSocketConfigEnabled: 0
   switchTcpInitialSendBufferSize: 32
@@ -633,8 +634,8 @@ PlayerSettings:
   cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: e55ad0fb-5da0-4fc3-8422-f958263bb192
-  projectName: MHVR Gamecraft2018
+  cloudProjectId: 63e3c850-4ef0-4824-9cc4-b5922f79859c
+  projectName: MHVR Gamecraft2018 (1)
   organizationId: riot94
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
