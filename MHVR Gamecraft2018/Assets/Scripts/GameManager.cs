@@ -12,8 +12,22 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetKeyDown(players[0].Left)) {
-			print("hello");
+		for (int i = 0; i < NUM_PLAYERS; i++) {
+			if (Input.GetKey(players[i].Left)) {
+				print("Player " + i + ": Left");
+			}
+
+			if (Input.GetKey(players[i].Right)) {
+				print("Player " + i + ": Right");
+			}
+
+			if (Input.GetKeyDown(players[i].Next)) {
+				print("Player " + i + ": Next");
+			}
+
+			if (Input.GetKeyDown(players[i].Previous)) {
+				print("Player " + i + ": Previous");
+			}
 		}
 	}
 
