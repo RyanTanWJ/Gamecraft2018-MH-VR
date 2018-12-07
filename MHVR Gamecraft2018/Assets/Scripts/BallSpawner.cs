@@ -11,8 +11,8 @@ public class BallSpawner : MonoBehaviour {
 
   BallPool ballPool;
 
-  int ballSat = 0;
-  const float delay = 0.5f;
+  int ballSat = 4;
+  const float delay = 3f;
   float time = 0;
 
   private void Start()
@@ -30,7 +30,7 @@ public class BallSpawner : MonoBehaviour {
         SpawnBall();
       }
       time = 0;
-      ballSat++;
+      //ballSat++;
     }
   }
 
