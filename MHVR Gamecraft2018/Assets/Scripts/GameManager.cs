@@ -96,16 +96,15 @@ public class GameManager : MonoBehaviour {
     GameOverCanvas.GetComponent<GameOverMenu>().PopulateCanvas(players[0].Score, players[1].Score);
   }
 
-  private void InitialiseGame()
-  {
+  private void InitialiseGame(){
 		gameEndTime = Time.time + gameDuration;
-		isPaused = false;
 		GearSystem = GearSystemObject.GetComponent<GearSystemsAPI>();
 		InitialisePlayers();
 		PrefabManager.InitialiseBlockSprites();
 		SpriteManager.InitialiseSprites();
 		SoundManager.InitialiseAudio();
 		ballSpawner = Instantiate(PrefabManager.InitialiseBallSpawner()).GetComponent<BallSpawner>();
+		UnpauseGame();
 	}
 
 	private void ScorePlayer(int playerPlusOne) {
