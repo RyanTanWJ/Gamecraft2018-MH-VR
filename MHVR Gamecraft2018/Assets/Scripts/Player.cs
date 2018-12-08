@@ -15,13 +15,13 @@ public class Player : MonoBehaviour {
 		Player newPlayer = new Player();
 
 		switch(player_number) {
-			case (0):
+			case (1):
 				newPlayer.Left = KeyCode.A;
 				newPlayer.Right = KeyCode.D;
 				newPlayer.Next = KeyCode.W;
 				newPlayer.Previous = KeyCode.S;
 				break;
-			case (1):
+			case (0):
 				newPlayer.Left = KeyCode.LeftArrow;
 				newPlayer.Right = KeyCode.RightArrow;
 				newPlayer.Next = KeyCode.UpArrow;

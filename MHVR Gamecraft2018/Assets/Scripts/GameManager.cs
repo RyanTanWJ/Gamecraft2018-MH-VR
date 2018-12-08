@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour {
 	private void InitialisePlayers() {
 		players = new Player[NUM_PLAYERS];
 		for (int i = 0; i < NUM_PLAYERS; i++) {
-			print("Create Player " + i);
+			//print("Create Player " + i);
 			players[i] = Player.Initialise(i);
 		}
 	}

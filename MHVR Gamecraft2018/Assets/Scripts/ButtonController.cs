@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class ButtonController : MonoBehaviour {
 
 	public void LoadScene(int sceneNumber) {
-		LoadScene(sceneNumber);
+		SceneManager.LoadScene(sceneNumber);
 	}
 
 	public void showObject(GameObject gameObject) {
