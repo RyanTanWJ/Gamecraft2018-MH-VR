@@ -71,7 +71,7 @@ public class GearSystemsAPI : MonoBehaviour
   public void ChangeGearSystem(bool playerSystem, bool next)
   {
     ChangeGearSystemNumbers(playerSystem, next);
-
+    SoundManager.PlaySound("GearSwitch");
     UpdateGearSystem();
     //Debug.Log(p1ActiveSystem);
     //Debug.Log(p2ActiveSystem);

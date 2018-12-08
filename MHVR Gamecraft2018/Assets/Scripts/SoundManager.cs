@@ -25,6 +25,9 @@ public class SoundManager : MonoBehaviour {
     loadedAudio = LoadAudio("SFX/Goal sound");
     audioFiles.Add("Goal", loadedAudio);
 
+    loadedAudio = LoadAudio("SFX/gear switch sound");
+    audioFiles.Add("GearSwitch", loadedAudio);
+
     loadedAudio = LoadAudio("SFX/selection back");
     audioFiles.Add("SelBack", loadedAudio);
 
