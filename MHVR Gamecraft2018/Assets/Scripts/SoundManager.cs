@@ -22,7 +22,7 @@ public class SoundManager : MonoBehaviour {
     AudioClip loadedAudio = LoadAudio("SFX/block knock");
     audioFiles.Add("Knock", loadedAudio);
 
-    loadedAudio = LoadAudio("SFX/Goal fanfare");
+    loadedAudio = LoadAudio("SFX/Goal sound");
     audioFiles.Add("Goal", loadedAudio);
 
     loadedAudio = LoadAudio("SFX/selection back");
