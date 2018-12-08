@@ -140,6 +140,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: 1
   playerNumberText: {fileID: 114393474145977726}
+  SpawnFX: {fileID: 1139524395001936, guid: 95b0ac0616e4e804dafff826650f673b, type: 2}
 --- !u!114 &114393474145977726
 MonoBehaviour:
   m_ObjectHideFlags: 1

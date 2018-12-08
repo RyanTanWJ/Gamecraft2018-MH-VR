@@ -13,6 +13,15 @@ public class GoalZone : MonoBehaviour {
   [SerializeField]
   TMPro.TextMeshPro playerNumberText;
 
+  [SerializeField]
+  GameObject SpawnFX;
+
+  public void PlayFX(Vector3 pos)
+  {
+    GameObject newFX = Instantiate(SpawnFX, pos, Quaternion.identity);
+    Destroy(newFX, newFX.GetComponent<ParticleSystem>().main.duration);
+  }
+
   private void Start()
   {
     if (player < 0)
@@ -34,6 +43,7 @@ public class GoalZone : MonoBehaviour {
 				ScoreGoal(player);
 			}
       SoundManager.PlaySound("Goal");
+      PlayFX(collision.gameObject.transform.position);
       collision.gameObject.GetComponent<Ball>().ExplodeBall();
     }
   }
