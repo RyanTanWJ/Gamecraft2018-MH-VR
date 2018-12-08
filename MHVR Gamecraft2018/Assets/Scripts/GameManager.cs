@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
 	public GameObject GearSystemObject;
+	public GameObject PauseMenu;
 	public TMPro.TextMeshProUGUI time, score1, score2;
 	GearSystemsAPI GearSystem;
 	BallSpawner ballSpawner;
@@ -84,6 +85,7 @@ public class GameManager : MonoBehaviour {
 
 	private void GameOver() {
 		PauseGame();
+		PauseMenu.SetActive(false);
 		ButtonController buttonController = new ButtonController();
 		buttonController.hideObject(GameCanvas);
 		ActivateGameOverCanvas();
@@ -121,10 +123,12 @@ public class GameManager : MonoBehaviour {
 	private void PauseGame() {
 		isPaused = true;
 		Time.timeScale = 0;
+		PauseMenu.SetActive(true);
 	}
 
 	private void UnpauseGame() {
 		isPaused = false;
 		Time.timeScale = 1;
+		PauseMenu.SetActive(false);
 	}
 }
