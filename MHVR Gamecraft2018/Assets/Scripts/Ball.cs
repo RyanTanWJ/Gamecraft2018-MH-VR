@@ -37,4 +37,9 @@ public class Ball : MonoBehaviour {
       BallExplodedEvent(this);
     }
   }
+
+  private void OnCollisionEnter2D(Collision2D collision)
+  {
+    SoundManager.PlaySound("Knock");
+  }
 }

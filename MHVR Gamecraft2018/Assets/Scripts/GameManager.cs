@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	GearSystemsAPI GearSystem;
 	BallSpawner ballSpawner;
 
-	private float gameDuration = 150;
+	private float gameDuration = 10;
 	private float gameStartTime;
 
 	private const int NUM_PLAYERS = 2;
@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour {
 		InitialisePlayers();
 		PrefabManager.InitialiseBlockSprites();
 		SpriteManager.InitialiseSprites();
+    SoundManager.InitialiseAudio();
 		ballSpawner = Instantiate(PrefabManager.InitialiseBallSpawner()).GetComponent<BallSpawner>();
 		gameStartTime = Time.time;
 		print("startgame");

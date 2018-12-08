@@ -19,11 +19,8 @@ public class SoundManager : MonoBehaviour {
 	public static void InitialiseAudio() {
     audioFiles = new Dictionary<string, AudioClip>();
 
-    AudioClip loadedAudio = LoadAudio("SFX/block%20knock");
+    AudioClip loadedAudio = LoadAudio("SFX/block knock");
     audioFiles.Add("Knock", loadedAudio);
-
-    loadedAudio = LoadAudio("SFX/Goal%20fanfare");
-    audioFiles.Add("Goal", loadedAudio);
 
     loadedAudio = LoadAudio("SFX/Goal fanfare");
     audioFiles.Add("Goal", loadedAudio);
@@ -37,7 +34,7 @@ public class SoundManager : MonoBehaviour {
     loadedAudio = LoadAudio("SFX/selection switching");
     audioFiles.Add("SelSwitch", loadedAudio);
 
-    loadedAudio = LoadAudio("SFX/Short_triumphal_fanfare - John_Stracke - 815794903");
+    loadedAudio = LoadAudio("SFX/short_triumph");
     audioFiles.Add("Triumph", loadedAudio);
   }
 

@@ -17,6 +17,7 @@ public class GameOverMenu : MonoBehaviour {
   private void Start()
   {
     ReturnToMainMenu.onClick.AddListener(ReturnMainMenu);
+    SoundManager.PlaySound("Triumph");
   }
 
   public void PopulateCanvas(int player1score,int player2score)

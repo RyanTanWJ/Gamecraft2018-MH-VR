@@ -33,7 +33,7 @@ public class GoalZone : MonoBehaviour {
 			{
 				ScoreGoal(player);
 			}
-      
+      SoundManager.PlaySound("Goal");
       collision.gameObject.GetComponent<Ball>().ExplodeBall();
     }
   }
