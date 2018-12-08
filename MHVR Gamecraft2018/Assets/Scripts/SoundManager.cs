@@ -4,23 +4,44 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour {
 
-	private AudioSource audioSource;
+	private static AudioSource audioSource;
 
-	private void Start() {
+  private static Dictionary<string, AudioClip> audioFiles;
+
+  private void Start() {
 		audioSource = GetComponent<AudioSource>();
 	}
 
-	private static Dictionary<string, AudioClip> audioFile;
+	public static void PlaySound(string file) {
+    audioSource.PlayOneShot(audioFiles[file]);
+  }
 
-	public void PlaySound(string file) {
-		audioSource.PlayOneShot(audioFile[file]);
-	}
+	public static void InitialiseAudio() {
+    audioFiles = new Dictionary<string, AudioClip>();
 
-	public static void initialiseAudio() {
-		audioFile = new Dictionary<string, AudioClip>();
-	}
+    AudioClip loadedAudio = LoadAudio("SFX/block%20knock");
+    audioFiles.Add("Knock", loadedAudio);
 
-	private static AudioClip LoadAudio(string filepath) {
+    loadedAudio = LoadAudio("SFX/Goal%20fanfare");
+    audioFiles.Add("Goal", loadedAudio);
+
+    loadedAudio = LoadAudio("SFX/Goal fanfare");
+    audioFiles.Add("Goal", loadedAudio);
+
+    loadedAudio = LoadAudio("SFX/selection back");
+    audioFiles.Add("SelBack", loadedAudio);
+
+    loadedAudio = LoadAudio("SFX/selection choose");
+    audioFiles.Add("SelChoose", loadedAudio);
+
+    loadedAudio = LoadAudio("SFX/selection switching");
+    audioFiles.Add("SelSwitch", loadedAudio);
+
+    loadedAudio = LoadAudio("SFX/Short_triumphal_fanfare - John_Stracke - 815794903");
+    audioFiles.Add("Triumph", loadedAudio);
+  }
+
+  private static AudioClip LoadAudio(string filepath) {
 		AudioClip audio = Resources.Load<AudioClip>("Audio/" + filepath);
 		if (audio == null) {
 			Debug.LogError("Error loading audio, path = [" + filepath + "]");
