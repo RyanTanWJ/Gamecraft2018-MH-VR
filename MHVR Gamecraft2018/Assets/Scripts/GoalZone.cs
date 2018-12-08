@@ -41,6 +41,6 @@ public class GoalZone : MonoBehaviour {
   void ScoreGoal(int player)
   {
 		ScoreEvent(player);
-    Debug.Log("Player " + player + " scored!");
+    //Debug.Log("Player " + player + " scored!");
   }
 }

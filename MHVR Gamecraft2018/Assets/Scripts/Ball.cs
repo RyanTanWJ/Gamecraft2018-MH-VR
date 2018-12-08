@@ -20,7 +20,7 @@ public class Ball : MonoBehaviour {
   internal void ExplodeBall()
   {
     PlayFX();
-    Debug.Log("Ball exploded!");
+    //Debug.Log("Ball exploded!");
     BallExplodedEvent(this);
   }
 }

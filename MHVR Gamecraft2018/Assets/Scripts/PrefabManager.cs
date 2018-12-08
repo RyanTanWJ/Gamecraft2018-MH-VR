@@ -7,6 +7,10 @@ public class PrefabManager : MonoBehaviour {
 
 	public static Dictionary<BlockType, GameObject> blockPrefab;
 
+	public static GameObject InitialiseBallSpawner() {
+		return LoadPrefab("BallSpawner");
+	}
+
 	public static void InitialiseBlockSprites() {
 		blockPrefab = new Dictionary<BlockType, GameObject>();
 
