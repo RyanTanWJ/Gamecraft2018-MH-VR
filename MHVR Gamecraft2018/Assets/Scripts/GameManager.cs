@@ -80,12 +80,11 @@ public class GameManager : MonoBehaviour {
 	private void GameOver() {
 		PauseGame();
 		ButtonController buttonController = new ButtonController();
-    buttonController.hideObject(GameCanvas);
-    ActivateGameOverCanvas();
+		buttonController.hideObject(GameCanvas);
+		ActivateGameOverCanvas();
 	}
 
-  private void ActivateGameOverCanvas()
-  {
+  private void ActivateGameOverCanvas() {
     GameOverCanvas.SetActive(true);
     GameOverCanvas.GetComponent<GameOverMenu>().PopulateCanvas(players[0].Score, players[1].Score);
   }
@@ -95,6 +94,7 @@ public class GameManager : MonoBehaviour {
 		GearSystem = GearSystemObject.GetComponent<GearSystemsAPI>();
 		InitialisePlayers();
 		PrefabManager.InitialiseBlockSprites();
+		SpriteManager.InitialiseSprites();
 		gameStartTime = Time.time;
 	}
 

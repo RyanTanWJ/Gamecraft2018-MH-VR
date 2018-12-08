@@ -11,20 +11,17 @@ public class MasterGear : Gear
 
   bool isActive = false;
 
-  public void ActivateMasterGear(bool player)
-  {
-    isActive = true;
-    GetComponent<SpriteRenderer>().sprite = HighlightedSprites[player ? 1 : 0];
-  }
+	public void ActivateMasterGear(bool player) {
+		isActive = true;
+		GetComponent<SpriteRenderer>().sprite = HighlightedSprites[player ? 1 : 0];
+	}
 
-  public void DeactivateMasterGear()
-  {
-    isActive = false;
-    GetComponent<SpriteRenderer>().sprite = RegularSprite;
-  }
+	public void DeactivateMasterGear() {
+		isActive = false;
+		GetComponent<SpriteRenderer>().sprite = RegularSprite;
+	}
 
-  public bool Active
-  {
-    get { return isActive; }
-  }
+	public bool Active {
+		get { return isActive; }
+	}
 }
