@@ -34,6 +34,7 @@ public class Ball : MonoBehaviour {
     yield return new WaitForSeconds(10f);
     if (gameObject.activeSelf)
     {
+      PlayFX();
       BallExplodedEvent(this);
     }
   }

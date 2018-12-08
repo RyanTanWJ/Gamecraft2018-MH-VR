@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	GearSystemsAPI GearSystem;
 	BallSpawner ballSpawner;
 
-	private float gameDuration = 10;
+	private float gameDuration = 30;
 	private float gameStartTime;
 
 	private const int NUM_PLAYERS = 2;
