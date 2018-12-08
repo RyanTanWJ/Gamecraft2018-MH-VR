@@ -20,17 +20,20 @@ public class BallPool : MonoBehaviour {
 
   public GameObject GetBall()
   {
+    GameObject retBall;
     if (balls.Count <= 0)
     {
-      return Instantiate(ballPrefab);
+      retBall = Instantiate(ballPrefab);
+      retBall.GetComponent<Ball>().OnGetBall();
     }
     else
     {
-      GameObject retBall = balls[0];
+      retBall = balls[0];
       balls.RemoveAt(0);
       retBall.SetActive(true);
-      return retBall;
+      retBall.GetComponent<Ball>().OnGetBall();
     }
+    return retBall;
   }
 
   public void ReturnBall(Ball ball)
@@ -38,6 +41,7 @@ public class BallPool : MonoBehaviour {
     GameObject ballObj = ball.gameObject;
     ballObj.transform.position = transform.position;
     balls.Add(ballObj);
+    ball.StopAllCoroutines();
     ballObj.SetActive(false);
   }
 }

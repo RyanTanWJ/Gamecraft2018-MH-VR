@@ -23,4 +23,18 @@ public class Ball : MonoBehaviour {
     //Debug.Log("Ball exploded!");
     BallExplodedEvent(this);
   }
+  
+  public void OnGetBall()
+  {
+    StartCoroutine(Timeout());
+  }
+
+  IEnumerator Timeout()
+  {
+    yield return new WaitForSeconds(10f);
+    if (gameObject.activeSelf)
+    {
+      BallExplodedEvent(this);
+    }
+  }
 }
