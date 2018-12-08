@@ -10,8 +10,8 @@ public class GameManager : MonoBehaviour {
 	GearSystemsAPI GearSystem;
 	BallSpawner ballSpawner;
 
-	private float gameDuration = 10;
-	private float gameStartTime;
+	private float gameDuration = 150;
+	private float gameEndTime;
 
 	private const int NUM_PLAYERS = 2;
 	Player[] players;
@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour {
   [SerializeField]
   GameObject GameOverCanvas;
 
-  void Awake() {
+	void Start() {
 		InitialiseGame();
 	}
 
@@ -71,9 +71,9 @@ public class GameManager : MonoBehaviour {
 
 		score1.text = "Player 1\nScore: " + players[0].Score;
 		score2.text = "Player 2\nScore: " + players[1].Score;
-		time.text = "Time Remaining\n" + (int)(gameDuration - Time.time - gameStartTime);
+		time.text = "Time Remaining\n" + (int)(gameEndTime - Time.time);
 
-		if (gameDuration - Time.time - gameStartTime <= 0) {
+		if (Time.time > gameEndTime) {
 			GameOver();
 		}
 
@@ -96,15 +96,14 @@ public class GameManager : MonoBehaviour {
 
   private void InitialiseGame()
   {
-    gameStartTime = Time.time;
-    isPaused = false;
+		gameEndTime = Time.time + gameDuration;
+		isPaused = false;
 		GearSystem = GearSystemObject.GetComponent<GearSystemsAPI>();
 		InitialisePlayers();
 		PrefabManager.InitialiseBlockSprites();
 		SpriteManager.InitialiseSprites();
-    SoundManager.InitialiseAudio();
+		SoundManager.InitialiseAudio();
 		ballSpawner = Instantiate(PrefabManager.InitialiseBallSpawner()).GetComponent<BallSpawner>();
-		print("startgame");
 	}
 
 	private void ScorePlayer(int playerPlusOne) {
