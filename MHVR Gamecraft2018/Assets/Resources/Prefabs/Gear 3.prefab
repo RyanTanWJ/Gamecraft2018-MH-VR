@@ -53,6 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _size: 1
+  HighlightedSprites:
+  - {fileID: 21300000, guid: bd3ba2709b6d56d438ddf08339467545, type: 3}
+  - {fileID: 21300000, guid: 09f9c1181f1b4bd46adaf11f9a3d4954, type: 3}
+  RegularSprite: {fileID: 21300000, guid: 08899fd149f28804a83d6f2330bace6e, type: 3}
   inPhase: 0
 --- !u!212 &212156844610511732
 SpriteRenderer:

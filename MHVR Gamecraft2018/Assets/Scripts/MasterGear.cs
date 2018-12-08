@@ -4,24 +4,31 @@ using UnityEngine;
 
 public class MasterGear : Gear
 {
-  [SerializeField]
-  List<Sprite> HighlightedSprites;
-  [SerializeField]
-  Sprite RegularSprite;
 
-  bool isActive = false;
+	bool isActive = false;
 
-	public void ActivateMasterGear(bool player) {
+	[SerializeField]
+	List<GameObject> ControlStars;
+
+	public void ActivateMasterGear(bool player)
+	{
 		isActive = true;
-		GetComponent<SpriteRenderer>().sprite = HighlightedSprites[player ? 1 : 0];
+		ActivateGear(player);
+		ControlStars[player ? 1 : 0].SetActive(true);
 	}
 
-	public void DeactivateMasterGear() {
+	public void DeactivateMasterGear()
+	{
 		isActive = false;
-		GetComponent<SpriteRenderer>().sprite = RegularSprite;
+		DeactivateGear();
+		foreach (GameObject cs in ControlStars)
+		{
+			cs.SetActive(false);
+		}
 	}
 
-	public bool Active {
+	public bool Active
+	{
 		get { return isActive; }
 	}
 }
