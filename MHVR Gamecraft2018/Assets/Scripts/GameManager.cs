@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject GearSystemObject;
 	public TMPro.TextMeshProUGUI time, score1, score2;
 	GearSystemsAPI GearSystem;
+	BallSpawner ballSpawner;
 
 	private float gameDuration = 30;
 	private float gameStartTime;
@@ -95,6 +96,7 @@ public class GameManager : MonoBehaviour {
 		InitialisePlayers();
 		PrefabManager.InitialiseBlockSprites();
 		SpriteManager.InitialiseSprites();
+		ballSpawner = Instantiate(PrefabManager.InitialiseBallSpawner()).GetComponent<BallSpawner>();
 		gameStartTime = Time.time;
 	}
 

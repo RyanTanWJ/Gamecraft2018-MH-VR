@@ -50,7 +50,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1633587290107066}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8, y: -5, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4903034356550162}
@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6607ac11d9f41254a8b0a64f9630446f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SpawnAreaTopLeftCorner: {x: -10, y: 3}
-  SpawnAreaBotRightCorner: {x: 10, y: 2}
+  SpawnAreaTopLeftCorner: {x: -3, y: 5}
+  SpawnAreaBotRightCorner: {x: 3, y: 4}
 --- !u!114 &114386744251610608
 MonoBehaviour:
   m_ObjectHideFlags: 1
