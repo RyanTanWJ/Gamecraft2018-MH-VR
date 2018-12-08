@@ -73,8 +73,8 @@ public class GearSystemsAPI : MonoBehaviour
     ChangeGearSystemNumbers(playerSystem, next);
 
     UpdateGearSystem();
-    Debug.Log(p1ActiveSystem);
-    Debug.Log(p2ActiveSystem);
+    //Debug.Log(p1ActiveSystem);
+    //Debug.Log(p2ActiveSystem);
   }
   private void ChangeGearSystemNumbers(bool playerSystem, bool next)
   {

@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour {
 	GearSystemsAPI GearSystem;
 	BallSpawner ballSpawner;
 
-	private float gameDuration = 30;
+	private float gameDuration = 150;
 	private float gameStartTime;
 
 	private const int NUM_PLAYERS = 2;
@@ -76,6 +76,10 @@ public class GameManager : MonoBehaviour {
 		if (gameDuration - Time.time - gameStartTime <= 0) {
 			GameOver();
 		}
+
+		if (ballSpawner.BallSat * ballSpawner.BallSat < players[0].Score + players[1].Score) {
+			ballSpawner.IncreaseSaturation();
+		}
 	}
 
 	private void GameOver() {
@@ -98,6 +102,7 @@ public class GameManager : MonoBehaviour {
 		SpriteManager.InitialiseSprites();
 		ballSpawner = Instantiate(PrefabManager.InitialiseBallSpawner()).GetComponent<BallSpawner>();
 		gameStartTime = Time.time;
+		print("startgame");
 	}
 
 	private void ScorePlayer(int playerPlusOne) {
